@@ -2,22 +2,26 @@ html,
 body {
     height: 100%;
 }
-img {
-    max-width: 100%;
-    width: auto\9;
-    height: auto;
-    vertical-align: middle;
-    border: 0;
-    -ms-interpolation-mode: bicubic;
-}
 .img-centered {
     margin: 0 auto;
 }
+
+@import 'vendor/bootstrap.scss';
 @import 'shared/navbar.scss';
 @import 'shared/header.scss';
- .section {
+
+$padding-xs:5px;
+$padding-sm:10px;
+$padding-md:20px;
+$padding-lg:50px;
+$padding-xlg:70px;
+
+.section {
     padding: 50px 0;
     position: relative;
+    .description {
+        padding-top: 30px;
+    }
 }
 #contacts {
     .panel {
@@ -44,6 +48,41 @@ img {
             background-size: cover;
             background-repeat: no-repeat;
             background-position: 50% 50%;
+        }
+    }
+}
+.who-content {
+    padding-top: $padding-sm;
+    text-align: center;
+    p {
+        padding-top: 10px;
+    }
+}
+@media (min-width: 768px) {
+    .who-content {
+        position: relative;
+        i {
+            padding: 0 $padding-sm;
+            position: absolute;
+            top: 30px;
+        }
+        &.on-right {
+            text-align: right;
+            i {
+                right: 0;
+            }
+            p {
+                padding-right: $padding-xlg;
+            }
+        }
+        &.on-left {
+            text-align: left;
+            i {
+                left: 0;
+            }
+            p {
+                padding-left: $padding-xlg;
+            }
         }
     }
 }

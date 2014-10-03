@@ -15,11 +15,27 @@ $(document).ready(function() {
     });
 
     $(window).trigger('scroll');
-    
-    /* Fix navigation. */
-    $('div.navbar').fixedonlater({
+
+    var $navbar = $('div.navbar');
+    var navbarHeight = $navbar.outerHeight(true);
+
+    /*
+     * Fixes the navbar container so that it will only appear when scrolling down the page.
+     */
+    $navbar.fixedonlater({
         speedDown: 250,
         speedUp: 100
+    });
+
+    /*
+     * This initializes the jquery-easing plugin for a smooth scroll of the page sections.
+     */
+    $('a').bind('click', function(event) {
+        var $anchor = $(this);
+        $('html, body').stop().animate({
+            scrollTop: $($anchor.attr('href')).offset().top
+        }, 1000, 'easeInOutExpo');
+        event.preventDefault();
     });
 
     /* Scroll spy and scroll filter */

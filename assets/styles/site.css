@@ -1,6 +1,14 @@
 html, body {
   height: 100%; }
 
+img {
+  max-width: 100%;
+  width: auto\9;
+  height: auto;
+  vertical-align: middle;
+  border: 0;
+  -ms-interpolation-mode: bicubic; }
+
 .img-centered {
   margin: 0 auto; }
 
@@ -221,5 +229,32 @@ header.video .scroll-down {
 @media (min-width: 768px) {
   header.video .overlay {
     opacity: 0.5; } }
+
+.section {
+  padding: 50px 0;
+  position: relative; }
+
+#contacts .panel {
+  background-color: white;
+  margin-top: 50px; }
+  #contacts .panel .panel-body-area {
+    margin-bottom: 20px; }
+#contacts .map {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 0.4;
+  filter: alpha(opacity=40);
+  overflow: hidden;
+  background-image: url(assets/images/map.png); }
+  #contacts .map .img {
+    height: 100%;
+    width: 100%;
+    background-image: url("../images/map.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%; }
 
 /*# sourceMappingURL=site.css.map */

@@ -19,15 +19,13 @@
     <script src="assets/scripts/vendor/jquery/jquery-bxslider.js"></script>
     <script src="assets/scripts/vendor/jquery/jquery-fixedonlater.js"></script>
     <script src="assets/scripts/vendor/jquery/jquery-onepagenav.js"></script>
+    <script src="assets/scripts/vendor/jquery/jquery-easing.min.js"></script>
     <script src="assets/scripts/vendor/bootstrap.js"></script>
     <script src="assets/scripts/vendor/bootstrap/collapse.js"></script>
     <script src="assets/scripts/index.js"></script>
 </head>
 
 <body>
-
-
-
     <div class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
             <div class="navbar-header">
@@ -40,7 +38,7 @@
                 <a class="navbar-brand" href="#">Project name</a>
             </div>
             <div class="navbar-collapse collapse">
-                <ul id="main-menu" class="nav navbar-nav">
+                <ul id="main-menu" class="nav navbar-nav navbar-center">
                     <li class="active"><a href="#">Welcome</a>
                     </li>
                     <li><a href="#who">Chi siamo</a>
@@ -51,15 +49,7 @@
                     </li>
                     <li><a href="#contacts">Contatti</a>
                     </li>
-                    <li><a href="#clients">Clienti</a>
-                    </li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="../navbar/">Default</a>
-                    </li>
-                    <li><a href="../navbar-static-top/">Static top</a>
-                    </li>
-                    <li class="active"><a href="./">Fixed top</a>
+                    <li><a href="#customers">Clienti</a>
                     </li>
                 </ul>
             </div>
@@ -97,21 +87,106 @@
             </a>
         </div>
     </header>
-    <div id="who" style="height: 600px; width: 100%; background-color: black;">
+    <!-- WHO WE ARE -->
+    <div id="who" class="section" style="height: 600px; width: 100%; background-color: black;">
         CHI SIAMO
     </div>
-    <div id="what" style="height: 600px; width: 100%; background-color: red;">
-        COSA FACCIAMO
+    <!-- END WHO WE ARE -->
+    <!-- WHAT WE DO -->
+    <div id="what" class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h2>We Make Software</h2>
+                    <p>Phasellus quis lectus metus, at posuere neque. Sed pharetra nibh eget orci convallis at posuere leo convallis. Sed blandit augue vitae augue scelerisque bibendum. Phasellus quis lectus metus, at posuere neque. Sed pharetra nibh eget orci convallis at posuere leo convallis. Sed blandit augue vitae augue scelerisque bibendum.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <h2>Skills</h2>
+                    <p>Phasellus quis lectus metus, at posuere neque. Sed pharetra nibh eget orci convallis at posuere leo convallis. Sed blandit augue vitae augue scelerisque bibendum. Phasellus quis lectus metus, at posuere neque. Sed pharetra nibh eget orci convallis at posuere leo convallis. Sed blandit augue vitae augue scelerisque bibendum.</p>
+                    <p>Phasellus quis lectus metus, at posuere neque. Sed pharetra nibh eget orci convallis at posuere leo convallis. Sed blandit augue vitae augue scelerisque bibendum. Phasellus quis lectus metus, at posuere neque. Sed pharetra nibh eget orci convallis at posuere leo convallis. Sed blandit augue vitae augue scelerisque bibendum.</p>
+                </div>
+            </div>
+        </div>
     </div>
-    <div id="portfolio" style="height: 600px; width: 100%; background-color: orange;">
+    <!-- END WHAT WE DO -->
+    <!-- PORTFOLIO -->
+    <div id="portfolio" class="section" style="height: 600px; width: 100%; background-color: orange;">
         PORTFOLIO
     </div>
-    <div id="contacts" style="height: 600px; width: 100%; background-color: blue;">
-        CONTATTI
+    <!-- END PORTFOLIO -->
+    <!-- CONTACTS -->
+    <div id="contacts" class="section">
+        <!-- MAP -->
+        <div class="map">
+            <div class="img">
+
+            </div>
+        </div>
+        <!-- END MAP -->
+        <div class="container">
+            <div class="col-sm-6">
+                <div class="panel">
+                    <div class="panel-body">
+                        <div class="panel-body-area">
+                            <h4>INDIRIZZO</h4>
+                            <p>Via dell'Arrigoni, 260</p>
+                            <p>47522 Cesena FC</p>
+                        </div>
+                        <div class="panel-body-area">
+                            <h4>RECAPITI</h4>
+                            <p>P: +39 0547 3471112</p>
+                            <p>F: +39 0547 1950284</p>
+                            <p>E: info@spot.it</p>
+                        </div>
+                        <div class="panel-body-area">
+                            <h4>Coordinate GPS</h4>
+                            <p>N: 44° 09.879</p>
+                            <p>E: 12° 13.120</p>
+                        </div>
+                        <div class="panel-body-area">
+                            <p>2014 SPOT Software &reg;</p>
+                            <p>Codice fiscale, Partita IVA e numero d'iscrizione al Registro delle Imprese di Forlì-Cesena 02710960408</p>
+                            <p>Capitale sociale euro 15.600,00 interamente versato</p>
+                            <p>&copy; Tutti i diritti riservati</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div id="clients" style="height: 600px; width: 100%; background-color: yellow;">
-        CLIENTI
+    <!-- END CONTACTS -->
+    <!-- CUSTOMERS -->
+    <div id="customers" class="section">
+        <div class="container">
+            <div class="col-xs-6 col-sm-4 col-md-3">
+                <h3>Technogym</h3>
+                <p>Azienda leader nel settore del wellness e bla bla bla, devo occupare spazio..</p>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-md-3">
+                <h3>Technogym</h3>
+                <p>Azienda leader nel settore del wellness e bla bla bla, devo occupare spazio..</p>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-md-3">
+                <h3>Technogym</h3>
+                <p>Azienda leader nel settore del wellness e bla bla bla, devo occupare spazio..</p>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-md-3">
+                <h3>Technogym</h3>
+                <p>Azienda leader nel settore del wellness e bla bla bla, devo occupare spazio..</p>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-md-3">
+                <h3>Technogym</h3>
+                <p>Azienda leader nel settore del wellness e bla bla bla, devo occupare spazio..</p>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-md-3">
+                <h3>Technogym</h3>
+                <p>Azienda leader nel settore del wellness e bla bla bla, devo occupare spazio..</p>
+            </div>
+        </div>
     </div>
+    <!-- END CUSTOMERS -->
 </body>
 
 </html>

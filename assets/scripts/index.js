@@ -1,4 +1,8 @@
 $(document).ready(function() {
+    
+    Grid.init();
+    $(window).trigger('scroll');
+    
     /**
      *   Global variables.
      */
@@ -14,8 +18,6 @@ $(document).ready(function() {
         pageHeight = $(window).height();
     });
 
-    $(window).trigger('scroll');
-
     var $navbar = $('div.navbar');
     var navbarHeight = $navbar.outerHeight(true);
 
@@ -30,7 +32,7 @@ $(document).ready(function() {
     /*
      * This initializes the jquery-easing plugin for a smooth scroll of the page sections.
      */
-    $('a').bind('click', function(event) {
+    $('a:not(.noclick)').bind('click', function(event) {
         var $anchor = $(this);
         $('html, body').stop().animate({
             scrollTop: $($anchor.attr('href')).offset().top
@@ -49,6 +51,7 @@ $(document).ready(function() {
         easing: "swing"
     });
 
+    /* Boxslider for welcome header */
     $('.skills-wrapper .skills').bxSlider({
         mode: 'vertical',
         auto: true,
@@ -60,4 +63,23 @@ $(document).ready(function() {
         useCSS: false,
         pause: 10000
     });
+
+    //ANIMATED OBJECT
+    $(".animatez").waypoint(function(direction) {
+        var effect = $(this).attr('data-effect');
+        $(this).removeClass('animatez');
+        $(this).addClass('animated ' + effect);
+    }, {
+        offset: '85%'
+    });
+
+
+    //    dp(".bar").waypoint(function(direction) {
+    //        var value = dp(this).attr('data-value');
+    //        dp(this).css({
+    //            'width': value + '%'
+    //        });
+    //    }, {
+    //        offset: '80%'
+    //    });
 });

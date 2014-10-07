@@ -57,6 +57,15 @@ $padding-xs:5px;
  .section {
     padding: 50px 0;
     position: relative;
+    .section-title {
+        text-align: center;
+        position: relative;
+        z-index: 2;
+        .title {
+            margin: 0;
+            padding: 20px;
+        }
+    }
     .description {
         padding-top: 30px;
     }

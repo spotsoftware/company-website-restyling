@@ -1,0 +1,32 @@
+{
+    "name": "spotsoftware",
+    "version": "1.0.0",
+    "description": "spot software website",
+    "main": "server.js",
+    "scripts": {
+        "test": "test",
+        "start": "node server.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/spotsoftware/company-website-restyling.git"
+    },
+    "keywords": [
+        "words"
+    ],
+    "author": {
+        "name": "Spot Software srl",
+        "email": "info@spot.it"
+    },
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/spotsoftware/company-website-restyling/issues"
+    },
+    "engines": {
+        "node": "0.10.25"
+    },
+    "homepage": "https://github.com/spotsoftware/company-website-restyling",
+    "dependencies": {
+        
+    }
+}

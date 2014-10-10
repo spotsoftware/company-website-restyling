@@ -4,6 +4,9 @@
 @import 'common/parallax.scss';
 @import 'shared/navbar.scss';
 @import 'shared/header.scss';
+
+$font-family-sans-serif:  "OpenSans", Helvetica, Arial, sans-serif !default;
+
  html,
 body {
     height: 100%;
@@ -87,7 +90,7 @@ $padding-xs:5px;
         opacity: .4;
         filter: alpha(opacity=40);
         overflow: hidden;
-        background-image: url(assets/images/map.png);
+        background-image: url(images/map.png);
         .img {
             height: 100%;
             width: 100%;

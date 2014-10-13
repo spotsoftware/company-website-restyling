@@ -2,7 +2,7 @@
     padding: 0;
     margin: 0;
     .parallax {
-        padding: 100px 0;
+        padding: 150px 0;
         text-align: center;
         color: #fff;
         background: no-repeat center center scroll;
@@ -15,11 +15,6 @@
         &.agile {
             background-image: url('../images/bg-agile.jpg');
         }
-    }
-}
-@media (min-width: 768px) {
-    .parallax-wrapper .parallax {
-        padding: 150px 0;
     }
 }
 @media (min-width: 992px) {

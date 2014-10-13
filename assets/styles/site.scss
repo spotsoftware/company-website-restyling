@@ -4,9 +4,10 @@
 @import 'common/parallax.scss';
 @import 'shared/navbar.scss';
 @import 'shared/header.scss';
-
-$font-family-sans-serif:  "OpenSans", Helvetica, Arial, sans-serif !default;
-
+ $font-family-sans-serif:"OpenSans",
+Helvetica,
+Arial,
+sans-serif !default;
  html,
 body {
     height: 100%;
@@ -55,6 +56,7 @@ body {
 $padding-xs:5px;
  $padding-sm:10px;
  $padding-md:20px;
+ $padding-xmd:30px;
  $padding-lg:50px;
  $padding-xlg:70px;
  .section {
@@ -66,11 +68,12 @@ $padding-xs:5px;
         z-index: 2;
         .title {
             margin: 0;
-            padding: 20px;
+            padding: $padding-xmd;
         }
     }
     .description {
-        padding-top: 30px;
+        padding-top: $padding-xmd;
+        padding-bottom: $padding-xmd;
     }
 }
 #contacts {
@@ -102,7 +105,8 @@ $padding-xs:5px;
     }
 }
 .who-content {
-    padding-top: $padding-sm;
+    padding-top: $padding-md;
+    padding-bottom: $padding-md;
     text-align: center;
     p {
         padding-top: 10px;

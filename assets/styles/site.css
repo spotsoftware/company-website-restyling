@@ -7049,7 +7049,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   padding: 0;
   margin: 0; }
   .parallax-wrapper .parallax {
-    padding: 100px 0;
+    padding: 150px 0;
     text-align: center;
     color: #fff;
     background: no-repeat center center scroll;
@@ -7061,10 +7061,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     background-attachment: fixed; }
     .parallax-wrapper .parallax.agile {
       background-image: url('../images/bg-agile.jpg'); }
-
-@media (min-width: 768px) {
-  .parallax-wrapper .parallax {
-    padding: 150px 0; } }
 
 @media (min-width: 992px) {
   .parallax-wrapper .parallax {
@@ -7184,13 +7180,15 @@ header {
   header .welcome-content {
     position: relative;
     text-align: center;
-    color: #fff; }
+    color: #fff;
+    padding: 0 20px; }
+    header .welcome-content img.logo {
+      max-width: 70%; }
   header .brand-motto {
-    margin-top: 15px;
+    margin-top: 30px;
     text-transform: uppercase;
     font-family: Raleway, "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 55px;
-    font-weight: 900;
     line-height: 55px; }
   header .brand-motto-subtext {
     font-size: 20px;
@@ -7200,7 +7198,7 @@ header {
     max-height: 150px;
     max-width: 150px; }
   header .skills-wrapper {
-    margin-top: 35px;
+    margin-top: 20px;
     width: 100%;
     overflow: hidden;
     position: relative;
@@ -7215,10 +7213,11 @@ header {
     header .skills-wrapper h1 {
       margin: 0;
       padding-top: 10px;
-      padding-bottom: 5px; }
+      padding-bottom: 5px;
+      font-size: 40px; }
   header .scroll-down {
     position: absolute;
-    bottom: 20px;
+    bottom: 60px;
     width: 100%;
     text-align: center; }
     header .scroll-down .btn {
@@ -7247,28 +7246,36 @@ header {
     background-attachment: scroll; }
     header .welcome-content {
       position: absolute;
-      top: 50%;
+      top: 30%;
       left: 50%;
       width: 50%;
       margin: auto;
       text-align: center;
       color: #fff;
-      -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-      transform: translate(-50%, -50%); }
+      -webkit-transform: translate(-50%, -30%);
+      -ms-transform: translate(-50%, -30%);
+      transform: translate(-50%, -30%); }
+      header .welcome-content img.logo {
+        max-width: 100%; }
     header .brand-motto {
-      font-size: 80px;
+      font-size: font-size-xxlg;
       line-height: 80px; }
     header .brand-motto-subtext {
       font-size: 30px;
       line-height: 30px; }
     header img {
       max-height: 300px;
-      max-width: 300px; } }
+      max-width: 300px; }
+    header .skills-wrapper {
+      margin-top: 20px; }
+      header .skills-wrapper h1 {
+        font-size: 55px; } }
 
 @media (min-width: 1025px) {
   header {
-    background-attachment: fixed; } }
+    background-attachment: fixed; }
+    header .welcome-content {
+      padding: 0 40px; } }
 
 header.video .overlay {
   z-index: 998;
@@ -7341,9 +7348,10 @@ html, body {
     z-index: 2; }
     .section .section-title .title {
       margin: 0;
-      padding: 20px; }
+      padding: 30px; }
   .section .description {
-    padding-top: 30px; }
+    padding-top: 30px;
+    padding-bottom: 30px; }
 
 #contacts .panel {
   background-color: white;
@@ -7369,7 +7377,8 @@ html, body {
     background-position: 50% 50%; }
 
 .who-content {
-  padding-top: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   text-align: center; }
   .who-content p {
     padding-top: 10px; }

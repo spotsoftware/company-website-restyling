@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "file": "",
+  "sources": ["parallax.scss"],
+  "names": [],
+  "mappings": "AAAA;EACI,SAAS;EACT,QAAQ;EAAZ,kBAAkB;IAEV,SAAS;IACT,YAAY;IACZ,OAAO;IACP,YAAY;IACZ,kBAAkB;IAClB,yBAAyB;IACzB,sBAAsB;IACtB,iBAAiB;IACjB,oBAAoB;IACpB,uBAAuB;IAA/B,kBAAkB,SAAS;MAEf,kBAAkB;;AAI9B;EAAA,kBAAkB;IAEV,SAAS"
+}

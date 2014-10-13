@@ -7064,7 +7064,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 @media (min-width: 992px) {
   .parallax-wrapper .parallax {
-    padding: 300px 0; } }
+    padding: 200px 0 400px; } }
 
 .fixed-top {
   position: fixed;

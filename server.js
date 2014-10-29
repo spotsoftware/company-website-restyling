@@ -1,4 +1,5 @@
 var express = require("express");
+var fs = require("fs");
 var i18n = require('i18n-abide');
 var localization = require('./lib/localization.js');
 //var logfmt = require("logfmt");
@@ -24,7 +25,11 @@ localization(app);
 //app.use(logfmt.requestLogger());
 
 app.get('/', function(req, res) {
-    res.render('index');
+    var jsondata = fs.readFileSync('assets/contents/contents.json', 'utf-8');
+
+    res.render('index', {
+        model: JSON.parse(jsondata)
+    });
 });
 
 var port = Number(process.env.PORT || 5000);

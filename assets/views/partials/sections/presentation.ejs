@@ -42,108 +42,14 @@
         </div>
     </div>
     <div class="container">
-        <div class="col-lg-3">
-            <div class="member">
-                <img class="img-responsive" src="images/member.jpg" alt="member" />
-                <h4 class="name">Nome a caso</h4>
+        <% model.employees.forEach(function (employee) { %>
+            <div class="col-lg-3">
+                <div class="member">
+                    <img class="img-responsive" src="<%= employee.imageUrl %>" alt="<%= employee.name %>" />
+                    <h4 class="name"><%= employee.name %></h4>
+                </div>
             </div>
-        </div>
-        <div class="col-lg-3">
-            <div class="member">
-                <img class="img-responsive" src="images/member.jpg" alt="member" />
-                <h4 class="name">Nome a caso</h4>
-            </div>
-        </div>
-        <div class="col-lg-3">
-            <div class="member">
-                <img class="img-responsive" src="images/member.jpg" alt="member" />
-                <h4 class="name">Nome a caso</h4>
-            </div>
-        </div>
-        <div class="col-lg-3">
-            <div class="member">
-                <img class="img-responsive" src="images/member.jpg" alt="member" />
-                <h4 class="name">Nome a caso</h4>
-            </div>
-        </div>
-        <div class="col-lg-3">
-            <div class="member">
-                <img class="img-responsive" src="images/member.jpg" alt="member" />
-                <h4 class="name">Nome a caso</h4>
-            </div>
-        </div>
-        <div class="col-lg-3">
-            <div class="member">
-                <img class="img-responsive" src="images/member.jpg" alt="member" />
-                <h4 class="name">Nome a caso</h4>
-            </div>
-        </div>
-        <div class="col-lg-3">
-            <div class="member">
-                <img class="img-responsive" src="images/member.jpg" alt="member" />
-                <h4 class="name">Nome a caso</h4>
-            </div>
-        </div>
-        <div class="col-lg-3">
-            <div class="member">
-                <img class="img-responsive" src="images/member.jpg" alt="member" />
-                <h4 class="name">Nome a caso</h4>
-            </div>
-        </div>
-        <div class="col-lg-3">
-            <div class="member">
-                <img class="img-responsive" src="images/member.jpg" alt="member" />
-                <h4 class="name">Nome a caso</h4>
-            </div>
-        </div>
-        <div class="col-lg-3">
-            <div class="member">
-                <img class="img-responsive" src="images/member.jpg" alt="member" />
-                <h4 class="name">Nome a caso</h4>
-            </div>
-        </div>
-        <div class="col-lg-3">
-            <div class="member">
-                <img class="img-responsive" src="images/member.jpg" alt="member" />
-                <h4 class="name">Nome a caso</h4>
-            </div>
-        </div>
-        <div class="col-lg-3">
-            <div class="member">
-                <img class="img-responsive" src="images/member.jpg" alt="member" />
-                <h4 class="name">Nome a caso</h4>
-            </div>
-        </div>
-        <div class="col-lg-3">
-            <div class="member">
-                <img class="img-responsive" src="images/member.jpg" alt="member" />
-                <h4 class="name">Nome a caso</h4>
-            </div>
-        </div>
-        <div class="col-lg-3">
-            <div class="member">
-                <img class="img-responsive" src="images/member.jpg" alt="member" />
-                <h4 class="name">Nome a caso</h4>
-            </div>
-        </div>
-        <div class="col-lg-3">
-            <div class="member">
-                <img class="img-responsive" src="images/member.jpg" alt="member" />
-                <h4 class="name">Nome a caso</h4>
-            </div>
-        </div>
-        <div class="col-lg-3">
-            <div class="member">
-                <img class="img-responsive" src="images/member.jpg" alt="member" />
-                <h4 class="name">Nome a caso</h4>
-            </div>
-        </div>
-        <div class="col-lg-3">
-            <div class="member">
-                <img class="img-responsive" src="images/member.jpg" alt="member" />
-                <h4 class="name">Nome a caso</h4>
-            </div>
-        </div>
+        <% }); %>
     </div>
     <div class="container-fluid parallax-wrapper">
         <div class="parallax agile">

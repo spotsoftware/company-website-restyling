@@ -1,0 +1,18 @@
+<? xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE plist PUBLIC>
+<plist version="1.0">
+    <dict>
+        <key>title</key>
+        <string>Spot Software - Components and solutions</string>
+        <key>web_development</key>
+        <string>Web development</string>
+        <key>mobile_development</key>
+        <string>Mobile development</string>
+        <key>desktop_development</key>
+        <string>Desktop development</string>
+        <key>ux_design</key>
+        <string>User experience design</string>
+        <key>ui_design</key>
+        <string>User interface design</string>
+    </dict>
+</plist>

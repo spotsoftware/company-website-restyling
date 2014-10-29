@@ -383,10 +383,26 @@ var Grid = (function() {
             // update current value
             current = this.$item.index();
 
+            function getAllLargeImages($item) {
+                var images = new Array();
+
+                for (var i = 0;; i++) {
+                    var data = $item.data('largesrc' + i);
+                    if (!data) {
+                        break;
+                    }
+
+                    images.push(data);
+                }
+
+                return images;
+            }
+
             // update preview´s content
             var $itemEl = this.$item.children('a'),
                 eldata = {
                     href: $itemEl.attr('href'),
+                    largeimages: getAllLargeImages($itemEl),
                     largesrc: $itemEl.data('largesrc'),
                     title: $itemEl.data('title'),
                     description: $itemEl.data('description')
@@ -399,25 +415,53 @@ var Grid = (function() {
             var self = this;
 
             // remove the current image in the preview
-            if (typeof self.$largeImg != 'undefined') {
-                self.$largeImg.remove();
+            if (typeof self.$slider != 'undefined') {
+                self.$slider.remove();
             }
 
             // preload large image and add it to the preview
             // for smaller screens we don´t display the large image (the media query will hide the fullimage wrapper)
             if (self.$fullimage.is(':visible')) {
                 this.$loading.show();
-                $('<img/>').load(function() {
-                    var $img = $(this);
-                    if ($img.attr('src') === self.$item.children('a').data('largesrc')) {
-                        self.$loading.hide();
-                        self.$fullimage.find('img').remove();
-                        self.$largeImg = $img.fadeIn(350);
-                        self.$fullimage.append(self.$largeImg);
-                    }
-                }).attr('src', eldata.largesrc);
-            }
 
+                var $slider = $('<ul/>').addClass('slides');
+                for (var i = 0; i < eldata.largeimages.length; i++) {
+                    var $img = $('<img/>').attr('src', eldata.largeimages[i]);
+                    var $slide = $('<div/>').addClass('slide').append($img);
+
+                    var $prev = $('<label/>').attr('for', 'img-' + (i === 0 ? eldata.largeimages.length : i)).addClass('prev').html('&#x2039;');
+                    var $next = $('<label/>').attr('for', 'img-' + (i === (eldata.largeimages.length - 1) ? 1 : (i + 2))).addClass('next').html('&#x203a;');
+                    var $nav = $('<div/>').addClass('nav').append($prev, $next);
+
+                    var $slideContainer = $('<li/>').addClass('slide-container').append($slide, $nav);
+
+                    var $radio = $('<input />').attr('id', 'img-' + (i + 1)).attr('type', 'radio').attr('name', 'radio-btn');
+                    if (i === 0) {
+                        $radio.prop("checked", true);
+                    }
+
+                    $slider.append($radio);
+                    $slider.append($slideContainer);
+                }
+
+                function onEverythingLoaded() {
+                    self.$loading.hide();
+                    self.$fullimage.find('.slides').remove();
+                    self.$slider = $slider;
+                    self.$slider.fadeIn(350);
+                    self.$fullimage.append(self.$slider);
+                }
+
+                var counter = 0;
+                var target = eldata.largeimages.length;
+
+                $slider.find('img').load(function() {
+                    counter++;
+                    if (counter === target) {
+                        onEverythingLoaded();
+                    }
+                });
+            }
         },
         open: function() {
 

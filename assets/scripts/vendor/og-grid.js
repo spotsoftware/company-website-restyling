@@ -1,169 +1,3 @@
-/*
- * debouncedresize: special jQuery event that happens once after a window resize
- *
- * latest version and complete README available on Github:
- * https://github.com/louisremi/jquery-smartresize/blob/master/jquery.debouncedresize.js
- *
- * Copyright 2011 @louis_remi
- * Licensed under the MIT license.
- */
-var $event = $.event,
-    $special,
-    resizeTimeout;
-
-$special = $event.special.debouncedresize = {
-    setup: function() {
-        $(this).on("resize", $special.handler);
-    },
-    teardown: function() {
-        $(this).off("resize", $special.handler);
-    },
-    handler: function(event, execAsap) {
-        // Save the context
-        var context = this,
-            args = arguments,
-            dispatch = function() {
-                // set correct event type
-                event.type = "debouncedresize";
-                $event.dispatch.apply(context, args);
-            };
-
-        if (resizeTimeout) {
-            clearTimeout(resizeTimeout);
-        }
-
-        execAsap ?
-            dispatch() :
-            resizeTimeout = setTimeout(dispatch, $special.threshold);
-    },
-    threshold: 250
-};
-
-// ======================= imagesLoaded Plugin ===============================
-// https://github.com/desandro/imagesloaded
-
-// $('#my-container').imagesLoaded(myFunction)
-// execute a callback when all images have loaded.
-// needed because .load() doesn't work on cached images
-
-// callback function gets image collection as argument
-//  this is the container
-
-// original: MIT license. Paul Irish. 2010.
-// contributors: Oren Solomianik, David DeSandro, Yiannis Chatzikonstantinou
-
-// blank image data-uri bypasses webkit log warning (thx doug jones)
-var BLANK = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==';
-
-$.fn.imagesLoaded = function(callback) {
-    var $this = this,
-        deferred = $.isFunction($.Deferred) ? $.Deferred() : 0,
-        hasNotify = $.isFunction(deferred.notify),
-        $images = $this.find('img').add($this.filter('img')),
-        loaded = [],
-        proper = [],
-        broken = [];
-
-    // Register deferred callbacks
-    if ($.isPlainObject(callback)) {
-        $.each(callback, function(key, value) {
-            if (key === 'callback') {
-                callback = value;
-            } else if (deferred) {
-                deferred[key](value);
-            }
-        });
-    }
-
-    function doneLoading() {
-        var $proper = $(proper),
-            $broken = $(broken);
-
-        if (deferred) {
-            if (broken.length) {
-                deferred.reject($images, $proper, $broken);
-            } else {
-                deferred.resolve($images);
-            }
-        }
-
-        if ($.isFunction(callback)) {
-            callback.call($this, $images, $proper, $broken);
-        }
-    }
-
-    function imgLoaded(img, isBroken) {
-        // don't proceed if BLANK image, or image is already loaded
-        if (img.src === BLANK || $.inArray(img, loaded) !== -1) {
-            return;
-        }
-
-        // store element in loaded images array
-        loaded.push(img);
-
-        // keep track of broken and properly loaded images
-        if (isBroken) {
-            broken.push(img);
-        } else {
-            proper.push(img);
-        }
-
-        // cache image and its state for future calls
-        $.data(img, 'imagesLoaded', {
-            isBroken: isBroken,
-            src: img.src
-        });
-
-        // trigger deferred progress method if present
-        if (hasNotify) {
-            deferred.notifyWith($(img), [isBroken, $images, $(proper), $(broken)]);
-        }
-
-        // call doneLoading and clean listeners if all images are loaded
-        if ($images.length === loaded.length) {
-            setTimeout(doneLoading);
-            $images.unbind('.imagesLoaded');
-        }
-    }
-
-    // if no images, trigger immediately
-    if (!$images.length) {
-        doneLoading();
-    } else {
-        $images.bind('load.imagesLoaded error.imagesLoaded', function(event) {
-            // trigger imgLoaded
-            imgLoaded(event.target, event.type === 'error');
-        }).each(function(i, el) {
-            var src = el.src;
-
-            // find out if this image has been already checked for status
-            // if it was, and src has not changed, call imgLoaded on it
-            var cached = $.data(el, 'imagesLoaded');
-            if (cached && cached.src === src) {
-                imgLoaded(el, cached.isBroken);
-                return;
-            }
-
-            // if complete is true and browser supports natural sizes, try
-            // to check for image status manually
-            if (el.complete && el.naturalWidth !== undefined) {
-                imgLoaded(el, el.naturalWidth === 0 || el.naturalHeight === 0);
-                return;
-            }
-
-            // cached images don't fire load sometimes, so we reset src, but only when
-            // dealing with IE, or image is complete (loaded) and failed manual check
-            // webkit hack from http://groups.google.com/group/jquery-dev/browse_thread/thread/eee6ab7b2da50e1f
-            if (el.readyState || el.complete) {
-                el.src = BLANK;
-                el.src = src;
-            }
-        });
-    }
-
-    return deferred ? deferred.promise($this) : $this;
-};
-
 var Grid = (function() {
 
     // list of items
@@ -216,8 +50,7 @@ var Grid = (function() {
             initEvents();
 
         });
-
-    }
+    };
 
     // add more items to the grid.
     // the new items need to appended to the grid.
@@ -235,8 +68,7 @@ var Grid = (function() {
         });
 
         initItemsEvents($newitems);
-
-    }
+    };
 
     // saves the item´s offset top and height (if saveheight is true)
     function saveItemInfo(saveheight) {
@@ -247,7 +79,7 @@ var Grid = (function() {
                 $item.data('height', $item.height());
             }
         });
-    }
+    };
 
     function initEvents() {
 
@@ -269,10 +101,8 @@ var Grid = (function() {
             if (typeof preview != 'undefined') {
                 hidePreview();
             }
-
         });
-
-    }
+    };
 
     function initItemsEvents($items) {
         $items.on('click', 'span.og-close', function() {
@@ -286,14 +116,14 @@ var Grid = (function() {
             return false;
 
         });
-    }
+    };
 
     function getWinSize() {
         winsize = {
             width: $window.width(),
             height: $window.height()
         };
-    }
+    };
 
     function showPreview($item) {
 
@@ -328,23 +158,73 @@ var Grid = (function() {
         preview = $.data(this, 'preview', new Preview($item));
         // expand preview overlay
         preview.open();
-
-    }
+    };
 
     function hidePreview() {
         current = -1;
         var preview = $.data(this, 'preview');
         preview.close();
         $.removeData(this, 'preview');
-    }
+    };
 
-    // the preview obj / overlay
+    /**
+     * Available types of content that preview can manage
+     */
+    var ContentTypes = {
+        "image": 0,
+        "video": 1
+    };
+
+    /**
+     * Model definition for preview contents
+     */
+    function Content(type, source) {
+        this.type = type;
+        this.source = source;
+    };
+
+    /**
+     * Preview model definition
+     */
+    function PreviewModel() {
+        this.contents = new Array();
+        this.description = "";
+        this.title = "";
+        this.url = "";
+    };
+
+    PreviewModel.prototype.buildContents = function(images, video) {
+        this.contents = new Array();
+        
+        if (video !== 'undefined') {
+            this.contents.push(new Content(ContentTypes.video, video));
+        }
+
+        for (var i = 0; i < images.length; i++) {
+            this.contents.push(new Content(ContentTypes.image, images[i]));
+        }
+    };
+
+    PreviewModel.prototype.getImagesCount = function() {
+        var count = 0;
+        for (var i = 0; i < this.contents.length; i++) {
+            if (this.contents[i].type === ContentTypes.image) {
+                count++;
+            }
+        }
+        return count;
+    };
+
+    /**
+     * Preview object definition
+     */
     function Preview($item) {
         this.$item = $item;
+        this.model = new PreviewModel();
         this.expandedIdx = this.$item.index();
         this.create();
         this.update();
-    }
+    };
 
     Preview.prototype = {
         create: function() {
@@ -365,8 +245,16 @@ var Grid = (function() {
                 this.setTransition();
             }
         },
-        update: function($item) {
+        fillModel: function($itemEl) {
+            this.model.description = $itemEl.data('description');
+            this.model.url = $itemEl.attr('href');
+            this.model.title = $itemEl.data('title');
 
+            var images = $itemEl.data('images').split(',');
+            var video = $itemEl.data('video');
+            this.model.buildContents(images, video);
+        },
+        update: function($item) {
             if ($item) {
                 this.$item = $item;
             }
@@ -383,36 +271,13 @@ var Grid = (function() {
             // update current value
             current = this.$item.index();
 
-            function getAllLargeImages($item) {
-                var images = new Array();
-
-                for (var i = 0;; i++) {
-                    var data = $item.data('largesrc' + i);
-                    if (!data) {
-                        break;
-                    }
-
-                    images.push(data);
-                }
-
-                return images;
-            }
-
-            // update preview´s content
-            var $itemEl = this.$item.children('a'),
-                eldata = {
-                    href: $itemEl.attr('href'),
-                    largeimages: getAllLargeImages($itemEl),
-                    largesrc: $itemEl.data('largesrc'),
-                    title: $itemEl.data('title'),
-                    description: $itemEl.data('description')
-                };
-
-            this.$title.html(eldata.title);
-            this.$description.html(eldata.description);
-            this.$href.attr('href', eldata.href);
+            this.fillModel(this.$item.children('a'));
 
             var self = this;
+
+            this.$title.html(self.model.title);
+            this.$description.html(self.model.description);
+            this.$href.attr('href', self.model.url);
 
             // remove the current image in the preview
             if (typeof self.$slider != 'undefined') {
@@ -425,17 +290,32 @@ var Grid = (function() {
                 this.$loading.show();
 
                 var $slider = $('<ul/>').addClass('slides');
-                for (var i = 0; i < eldata.largeimages.length; i++) {
-                    var $img = $('<img/>').attr('src', eldata.largeimages[i]);
-                    var $slide = $('<div/>').addClass('slide').append($img);
+                var $slideContainer = null;
+                var $slide = null;
+                var $content = null;
+                var $prev = null;
+                var $next = null;
+                var $nav = null;
+                var $radio = null;
 
-                    var $prev = $('<label/>').attr('for', 'img-' + (i === 0 ? eldata.largeimages.length : i)).addClass('prev').html('&#x2039;');
-                    var $next = $('<label/>').attr('for', 'img-' + (i === (eldata.largeimages.length - 1) ? 1 : (i + 2))).addClass('next').html('&#x203a;');
-                    var $nav = $('<div/>').addClass('nav').append($prev, $next);
+                for (var i = 0; i < self.model.contents.length; i++) {
 
-                    var $slideContainer = $('<li/>').addClass('slide-container').append($slide, $nav);
+                    if (self.model.contents[i].type === ContentTypes.image) {
+                        $content = $('<img/>').attr('src', self.model.contents[i].source);
+                    } else {
+                        var $source = $('<source/>').attr('src', self.model.contents[i].source).attr('type', 'video/mp4');
+                        $content = $('<video/>').prop('autoplay', true).append($source);
+                    }
 
-                    var $radio = $('<input />').attr('id', 'img-' + (i + 1)).attr('type', 'radio').attr('name', 'radio-btn');
+                    $slide = $('<div/>').addClass('slide').append($content);
+
+                    $prev = $('<label/>').attr('for', 'content-' + (i === 0 ? self.model.contents.length : i)).addClass('prev').html('&#x2039;');
+                    $next = $('<label/>').attr('for', 'content-' + (i === (self.model.contents.length - 1) ? 1 : (i + 2))).addClass('next').html('&#x203a;');
+                    $nav = $('<div/>').addClass('nav').append($prev, $next);
+
+                    $slideContainer = $('<li/>').addClass('slide-container').append($slide, $nav);
+
+                    $radio = $('<input />').attr('id', 'content-' + (i + 1)).attr('type', 'radio').attr('name', 'radio-btn');
                     if (i === 0) {
                         $radio.prop("checked", true);
                     }
@@ -450,10 +330,10 @@ var Grid = (function() {
                     self.$slider = $slider;
                     self.$slider.fadeIn(350);
                     self.$fullimage.append(self.$slider);
-                }
+                };
 
                 var counter = 0;
-                var target = eldata.largeimages.length;
+                var target = self.model.getImagesCount();
 
                 $slider.find('img').load(function() {
                     counter++;
@@ -519,13 +399,13 @@ var Grid = (function() {
         },
         setHeights: function() {
 
-            var self = this,
-                onEndFn = function() {
-                    if (support) {
-                        self.$item.off(transEndEventName);
-                    }
-                    self.$item.addClass('og-expanded');
-                };
+            var self = this;
+            var onEndFn = function() {
+                if (support) {
+                    self.$item.off(transEndEventName);
+                }
+                self.$item.addClass('og-expanded');
+            };
 
             this.calcHeight();
             this.$previewEl.css('height', this.height);
@@ -558,7 +438,7 @@ var Grid = (function() {
         getEl: function() {
             return this.$previewEl;
         }
-    }
+    };
 
     return {
         init: init,

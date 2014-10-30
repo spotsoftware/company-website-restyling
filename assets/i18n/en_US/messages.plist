@@ -4,6 +4,13 @@
     <dict>
         <key>title</key>
         <string>Spot Software - Components and solutions</string>
+
+        <key>motto</key>
+        <string>We Make Software</string>
+        
+        <key>Comment</key>
+        <string>Skills localization</string>
+
         <key>web_development</key>
         <string>Web development</string>
         <key>mobile_development</key>
@@ -14,5 +21,20 @@
         <string>User experience design</string>
         <key>ui_design</key>
         <string>User interface design</string>
+
+        <key>Comment</key>
+        <string>Sections' titles</string>
+
+        <key>who_title</key>
+        <string>Who we are</string>
+        <key>what_title</key>
+        <string>What we do</string>
+        <key>portfolio_title</key>
+        <string>Portfolio</string>
+        <key>contacts_title</key>
+        <string>Contacts</string>
+        <key>customers_title</key>
+        <string>Our customers</string>
+
     </dict>
 </plist>

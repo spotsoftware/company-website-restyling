@@ -59,13 +59,46 @@
         ],
         "thumb": "images/thumbs/1.jpg",
         "title": "Azuki bean",
+        "url": "http://cargocollective.com/jaimemartinez/",
+        "video": "videos/sample.mp4"
+    }, {
+        "description": "Swiss chard pumpkin bunya nuts maize plantain aubergine napa cabbage soko coriander sweet pepper water spinach winter purslane shallot tigernut lentil beetroot.",
+        "images": [
+            "images/1.jpg",
+            "images/2.jpg",
+            "images/1.jpg",
+            "images/1.jpg",
+            "images/2.jpg",
+            "images/1.jpg",
+            "images/2.jpg"
+        ],
+        "thumb": "images/thumbs/1.jpg",
+        "title": "Azuki bean",
         "url": "http://cargocollective.com/jaimemartinez/"
     }, {
         "description": "Swiss chard pumpkin bunya nuts maize plantain aubergine napa cabbage soko coriander sweet pepper water spinach winter purslane shallot tigernut lentil beetroot.",
         "images": [
             "images/1.jpg",
             "images/2.jpg",
-            "images/1.jpg"
+            "images/1.jpg",
+            "images/1.jpg",
+            "images/2.jpg",
+            "images/1.jpg",
+            "images/2.jpg"
+        ],
+        "thumb": "images/thumbs/1.jpg",
+        "title": "Azuki bean",
+        "url": "http://cargocollective.com/jaimemartinez/"
+    }, {
+        "description": "Swiss chard pumpkin bunya nuts maize plantain aubergine napa cabbage soko coriander sweet pepper water spinach winter purslane shallot tigernut lentil beetroot.",
+        "images": [
+            "images/1.jpg",
+            "images/2.jpg",
+            "images/1.jpg",
+            "images/1.jpg",
+            "images/2.jpg",
+            "images/1.jpg",
+            "images/2.jpg"
         ],
         "thumb": "images/thumbs/1.jpg",
         "title": "Azuki bean",

@@ -4,5 +4,15 @@
     <dict>
         <key>title</key>
         <string>Spot Software - Components and solutions</string>
+        <key>web_development</key>
+        <string>Sviluppo web</string>
+        <key>mobile_development</key>
+        <string>Sviluppo mobile</string>
+        <key>desktop_development</key>
+        <string>Sviluppo desktop</string>
+        <key>ux_design</key>
+        <string>User experience design</string>
+        <key>ui_design</key>
+        <string>User interface design</string>
     </dict>
 </plist>

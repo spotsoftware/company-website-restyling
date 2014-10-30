@@ -3,7 +3,7 @@
         <ul id="og-grid" class="og-grid">
             <% model.projects.forEach(function (project) { %>
                 <li>
-                    <a class="noclick" href="http://cargocollective.com/jaimemartinez/" data-largesrc0="images/1.jpg" data-largesrc1="images/2.jpg" data-largesrc2="images/1.jpg" data-title="<%= project.title %>" data-description="<%= project.description %>">
+                    <a class="noclick" href="<%= project.url %>" data-images="<%= project.images %>" data-video="<%= project.video %>" data-title="<%= project.title %>" data-description="<%= project.description %>">
                         <img src="<%= project.thumb %>" alt="<%= project.title %>" />
                     </a>
                 </li>
